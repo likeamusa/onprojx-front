@@ -1,0 +1,97 @@
+:root {
+    --primary-color: #219ebc;
+    --dark: #14213d;
+    --danger: #f44336;
+    --success: #4caf50;
+    --white: #ffffff;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+header {
+    background-color: var(--primary-color);
+}
+
+header > div {
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 10px 20px;
+}
+
+header > div:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+header img {
+    width: 50px;
+    border-radius: 100%;
+    margin-left: 15px;
+}
+
+header span:not(.mdi) {
+    margin-bottom: -10px;
+}
+
+header span.mdi {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+header small {
+    display: block;
+    margin-top: -20px;
+}
+
+sidebar {
+    background-color: var(--dark);
+}
+
+sidebar ul li {
+    list-style: none;
+}
+
+sidebar ul li a {
+    width: 100%;
+    color: #ffffff;
+    opacity: 0.6;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+    margin: 2.5px 0;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+sidebar ul li a.active {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+sidebar ul li a.active .mdi {
+    color: var(--primary-color);
+}
+
+sidebar ul li a:visited,
+sidebar ul li a:focus {
+    color: var(--white);
+}
+
+sidebar ul li a:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+sidebar ul li a .mdi {
+    font-size: 20px;
+    margin-right: 10px;
+    color: var(--white);
+}
+
+sidebar ul li a text {
+    font-size: 14px;
+}
