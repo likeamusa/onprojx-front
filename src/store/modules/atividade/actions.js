@@ -8,9 +8,9 @@ export function filterAtividades(start, end) {
     };
 }
 
-export function updateAtividades(atividades) {
+export function updateAtividade(atividades) {
     return {
-        type: types.UPDATE_ATIVIDADES,
+        type: types.UPDATE_ATIVIDADE,
         atividades
     };
 }

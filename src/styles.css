@@ -1,6 +1,7 @@
 :root {
-    --primary-color: #219ebc;
+    --primary-color: #023e8a;
     --dark: #14213d;
+    --gray: #ced4da;
     --danger: #f44336;
     --success: #4caf50;
     --white: #ffffff;
@@ -14,6 +15,7 @@
 
 header {
     background-color: var(--primary-color);
+    height: 40px;
 }
 
 header > div {
@@ -27,7 +29,7 @@ header > div:hover {
 }
 
 header img {
-    width: 50px;
+    width: 30px;
     border-radius: 100%;
     margin-left: 15px;
 }
@@ -39,11 +41,15 @@ header span:not(.mdi) {
 header span.mdi {
     font-size: 20px;
     margin-left: 10px;
+    color: var(--white);
+    opacity: 0.6;
 }
 
 header small {
     display: block;
     margin-top: -20px;
+    color: var(--white);
+    opacity: 0.6;
 }
 
 sidebar {
@@ -79,11 +85,13 @@ sidebar ul li a.active .mdi {
 sidebar ul li a:visited,
 sidebar ul li a:focus {
     color: var(--white);
+    text-decoration: none;
 }
 
 sidebar ul li a:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.2);
+    text-decoration: none;
 }
 
 sidebar ul li a .mdi {

@@ -1,7 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects';
 import types from './types';
 import api from '../../../services/api';
-import { updateAtividades } from './actions';
+import { updateAtividade } from './actions';
 
 export function* filterAtividade({ start, end }) {
     try {
@@ -14,7 +14,7 @@ export function* filterAtividade({ start, end }) {
             alert(res.error);
         }
 
-        yield put(updateAtividades(res));
+        yield put(updateAtividade(res));
 
     } catch (err) {
         alert(err.message)

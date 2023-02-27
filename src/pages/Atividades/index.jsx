@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
+import { Drawer } from 'rsuite'
 import moment from 'moment'
+import 'moment/locale/pt-br'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -29,16 +31,40 @@ const Atividades = () => {
 
     return (
         <div className="col p-5 overflow-auto h-100">
+            <Drawer>
+                <Drawer.Body>
+                    
+                </Drawer.Body>
+            </Drawer>
             <div className="row">
                 <div className="col-12">
-                    <h2 className="mb-4 mt-0">Atividades</h2>
+                <div className="w-100 d-flex justify-content-between">
+                        <h2 className="mb-4 mt-0">Atividades programadas</h2>
+                        <div>
+                            <button className="btn btn-primary">
+                                <span className="mdi mdi-plus">Nova Atividade</span>
+                            </button>
+                        </div>
+                    </div>
+                    
                     <Calendar
                         localizer={localizer}
                         events={events}
                         defaultView="week"
                         selectable
                         popup
-                        style={{ height: 600 }}
+                        style={{ height: '100vh' }}
+                        messages={{
+                            next: 'Próximo',
+                            previous: 'Anterior',
+                            today: 'Hoje',
+                            month: 'Mês',
+                            week: 'Semana',
+                            day: 'Dia',
+                            agenda: 'Agenda',
+                        }}
+                        popupOffset={{ x: 30, y: 20 }}
+                        culture="pt-BR"
                     />
                 </div>
             </div>

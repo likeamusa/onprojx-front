@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 
 function atividade(state = INITIAL_STATE, action) {
     switch (action.type) {
-        case types.UPDATE_ATIVIDADES: {
+        case types.UPDATE_ATIVIDADE: {
             return produce(state, draft => {
                 draft.atividades = action.atividades;
             });

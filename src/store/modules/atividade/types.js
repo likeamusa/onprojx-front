@@ -1,6 +1,6 @@
 const types = {
     FILTER_ATIVIDADES: '@atividade/FILTER',
-    UPDATE_ATIVIDADES: '@atividade/UPDATE',
+    UPDATE_ATIVIDADE: '@atividade/UPDATE',
 };
 
 export default types;
