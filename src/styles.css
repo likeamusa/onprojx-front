@@ -75,7 +75,7 @@ sidebar ul li a {
 
 sidebar ul li a.active {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 sidebar ul li a.active .mdi {
@@ -90,7 +90,7 @@ sidebar ul li a:focus {
 
 sidebar ul li a:hover {
     opacity: 1;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     text-decoration: none;
 }
 
