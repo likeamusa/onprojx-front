@@ -9,7 +9,7 @@ const withRouter = (Component) => (props) => {
 const Sidebar = ({ location }) => {
     return (
         <sidebar className="col-2 h-100">
-            <img src={logo} className="px-3 py-4" alt="Logo da empresa" />
+            <div className='px-3 py-4'></div>
             <ul className='p-0 m-0'>
                 <li>
                     <Link to='/' className={location.pathname === '/' ? 'active' : ''}>

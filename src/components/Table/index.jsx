@@ -4,7 +4,7 @@ const { Column, HeaderCell, Cell } = Table;
 
 
 
-const TableComponent = ({ data , config, actions, onRowClick }) => {
+const TableComponent = ({ data , config, actions, onRowClick}) => {
     return (
         <Table
             height={400} data={data} onRowClick={onRowClick}>
@@ -20,6 +20,7 @@ const TableComponent = ({ data , config, actions, onRowClick }) => {
                         {(item) => actions(item)}
                     </Cell>
                 </Column>
+
                
             
         </Table>

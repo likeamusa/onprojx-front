@@ -39,7 +39,7 @@ const Atividades = () => {
             <div className="row">
                 <div className="col-12">
                 <div className="w-100 d-flex justify-content-between">
-                        <h2 className="mb-4 mt-0">Atividades programadas</h2>
+                        <h3 className="mb-4 mt-0 text-sm">Atividades programadas</h3>
                         <div>
                             <button className="btn btn-primary">
                                 <span className="mdi mdi-plus">Nova Atividade</span>
@@ -52,8 +52,9 @@ const Atividades = () => {
                         events={events}
                         defaultView="week"
                         selectable
+                        resourceAccessor={'ASFLKJ'}
                         popup
-                        style={{ height: '100vh' }}
+                        style={{ height: '100vh'}}
                         messages={{
                             next: 'Próximo',
                             previous: 'Anterior',

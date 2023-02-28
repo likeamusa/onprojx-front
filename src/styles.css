@@ -1,7 +1,7 @@
 :root {
     --primary-color: #023e8a;
     --dark: #14213d;
-    --gray: #ced4da;
+    --gray: #e7ecef;
     --danger: #f44336;
     --success: #4caf50;
     --white: #ffffff;
@@ -15,7 +15,7 @@
 
 header {
     background-color: var(--primary-color);
-    height: 40px;
+    height: 45px;
 }
 
 header > div {
@@ -53,7 +53,7 @@ header small {
 }
 
 sidebar {
-    background-color: var(--dark);
+    background-color: var(--gray);
 }
 
 sidebar ul li {
@@ -62,7 +62,7 @@ sidebar ul li {
 
 sidebar ul li a {
     width: 100%;
-    color: #ffffff;
+    color: black;
     opacity: 0.6;
     text-decoration: none;
     display: flex;
@@ -84,7 +84,7 @@ sidebar ul li a.active .mdi {
 
 sidebar ul li a:visited,
 sidebar ul li a:focus {
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
 }
 
@@ -97,7 +97,7 @@ sidebar ul li a:hover {
 sidebar ul li a .mdi {
     font-size: 20px;
     margin-right: 10px;
-    color: var(--white);
+    color: var(--black);
 }
 
 sidebar ul li a text {

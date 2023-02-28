@@ -50,15 +50,18 @@ const Projetos = () => {
             <div className="row">
                 <div className="col-12">
                     <div className="w-100 d-flex justify-content-between">
-                        <h2 className="mb-4 mt-0">Projetos</h2>
+                        <h3 className="mb-4 mt-0">Projetos</h3>
                         <div>
                             <button className="btn btn-primary">
                                 <span className="mdi mdi-plus">Novo Projeto</span>
                             </button>
                         </div>
                     </div>
-                    <Table 
+                    <Table
+                    color='#ffafcc'
+
                     data={projetos}
+
                     config={[
                         {
                             label: 'Projeto', key: 'projeto', width: 80, align: 'center', fixed: true
