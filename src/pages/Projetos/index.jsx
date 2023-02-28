@@ -64,10 +64,10 @@ const Projetos = () => {
 
                     config={[
                         {
-                            label: 'Projeto', key: 'projeto', width: 80, align: 'center', fixed: true
+                            label: 'Projeto', key: 'projeto', width: 80, align: 'center'
                         },
                         {
-                            label: 'Descrição', key: 'descricao', width: 500, align: 'center', fixed: true
+                            label: 'Descrição', key: 'descricao', width: 500, align: 'center'
                         },
                         {
                             label: 'Tipo', key: 'tipo', align: 'center'

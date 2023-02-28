@@ -14,7 +14,7 @@ const TableComponent = ({ data , config, actions, onRowClick}) => {
                         <Cell dataKey={c.key} />
                     </Column>
                 ))}
-                <Column width={150} fixed='right' align='center'>
+                <Column width={150} align='center'>
                     <HeaderCell>Ação</HeaderCell>
                     <Cell>
                         {(item) => actions(item)}
