@@ -1,14 +1,13 @@
 import { useEffect } from 'react'
-import { Calendar, momentLocalizer } from 'react-big-calendar'
 import { Drawer } from 'rsuite'
+import Timeline from 'react-calendar-timeline'
+// make sure you include the timeline stylesheet or the timeline will not be styled
+import './Timeline.css'
 import moment from 'moment'
-import 'moment/locale/pt-br'
-import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { filterAtividades } from '../../store/modules/atividade/actions'
 
-const localizer = momentLocalizer(moment)
 
 const Atividades = () => {
 
@@ -17,10 +16,54 @@ const Atividades = () => {
     const { atividades }  = useSelector((state) => state.atividade);
 
     const events = atividades.map((atividade) => ({
-        title: atividade.title,
-        start: moment(atividade.start).toDate(),
-        end: moment(atividade.end).toDate()
+        id: atividade.id,
+        group: atividade.designated_id,
+        title: `${atividade.project} - ${atividade.description}`,
+        start_time: moment(atividade.start).toDate(),
+        end_time: moment(atividade.end).add(1, 'day'),
     }))
+
+    const designateds = [
+        { id: 19859, title: 'Joaozinho da silva' }, 
+        { id: 2, title: 'Mormantino Xavier' },
+        { id: 19857, title: 'Marionete da Silva' },
+        { id: 19858, title: 'Mario Leonardo' },
+        { id: 5, title: 'Xerosvaldo da Mata' },
+        { id: 6, title: 'Luis Ferdinando' },
+        { id: 7, title: 'Jucelino Kubshaksperr' },
+        { id: 8, title: 'Marina Silva' },
+        { id: 9, title: 'Joao Miguel' },
+        { id: 10, title: 'Pino Banner' },
+        { id: 11, title: 'Romario Vidente' },
+        { id: 12, title: 'Jacaré Limeira' },
+        { id: 13, title: 'Pneumatico dos Santos' },
+        { id: 14, title: 'Alaide maria' }
+
+    ]
+
+    const items = [
+    {
+        id: 1,
+        group: 1,
+        title: '8180234 - Atividade programada pra o dia em que foi designada',
+        start_time: moment(0, 'hour'),
+        end_time: moment(0, 'hour').add(1, 'day')
+    },
+    {
+        id: 2,
+        group: 7,
+        title: '8228487 - Atividade programada pra o dia em que foi designada',
+        start_time: moment(0, 'hour'),
+        end_time: moment(0, 'hour').add(1, 'day')
+    },
+    {
+        id: 3,
+        group: 9,
+        title: '8472834 - Atividade programada pra o dia em que foi designada',
+        start_time: moment(0, 'hour'),
+        end_time: moment(0, 'hour').add(1, 'day')
+    }
+    ]
 
     useEffect(() => {
         dispatch(filterAtividades(
@@ -31,11 +74,7 @@ const Atividades = () => {
 
     return (
         <div className="col p-5 overflow-auto h-100">
-            <Drawer>
-                <Drawer.Body>
-                    
-                </Drawer.Body>
-            </Drawer>
+            
             <div className="row">
                 <div className="col-12">
                 <div className="w-100 d-flex justify-content-between">
@@ -47,26 +86,16 @@ const Atividades = () => {
                         </div>
                     </div>
                     
-                    <Calendar
-                        localizer={localizer}
-                        events={events}
-                        defaultView="week"
-                        selectable
-                        resourceAccessor={'ASFLKJ'}
-                        popup
-                        style={{ height: '100vh'}}
-                        messages={{
-                            next: 'Próximo',
-                            previous: 'Anterior',
-                            today: 'Hoje',
-                            month: 'Mês',
-                            week: 'Semana',
-                            day: 'Dia',
-                            agenda: 'Agenda',
-                        }}
-                        popupOffset={{ x: 30, y: 20 }}
-                        culture="pt-BR"
+                    <Timeline
+                    groups={designateds}
+                    items={events}
+                    defaultTimeStart={moment().add(-12, 'hour')}
+                    defaultTimeEnd={moment().add(12, 'hour')}
+                    canChangeGroup={true}
+                    canResize={true}
+                    
                     />
+
                 </div>
             </div>
         </div>
