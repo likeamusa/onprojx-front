@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { Button } from 'rsuite';
+import { useEffect, useState } from 'react';
+import { Button, Drawer,} from 'rsuite';
 import 'rsuite/dist/rsuite.css'
 import Table from '../../components/Table'
 
@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { allProjetos } from '../../store/modules/projeto/actions'
 
 const Projetos = () => {
+
+    const [open, setOpen] = useState(false);
 
     const projetos = useSelector(state => state.projeto.projetos);
 
@@ -45,14 +47,28 @@ const Projetos = () => {
     //     },
     // ]
 
+
     return (
         <div className="col p-5 overflow-auto h-100">
+            <Drawer open={open} onClose={() => setOpen(false)}>
+                <Drawer.Header>
+                    <Drawer.Title>Novo Projeto</Drawer.Title>
+                    <Drawer.Actions>
+                        <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                        <Button onClick={() => setOpen(false)} appearance="primary">Confirmar</Button>
+                    </Drawer.Actions>
+                </Drawer.Header>
+                <Drawer.Body>
+                    
+                </Drawer.Body>
+            </Drawer>
+
             <div className="row">
                 <div className="col-12">
                     <div className="w-100 d-flex justify-content-between">
                         <h3 className="mb-4 mt-0">Projetos</h3>
                         <div>
-                            <button className="btn btn-primary">
+                            <button className="btn btn-primary" onClick={() => setOpen(true)} >
                                 <span className="mdi mdi-plus">Novo Projeto</span>
                             </button>
                         </div>
@@ -85,8 +101,7 @@ const Projetos = () => {
                     actions={(projeto) => (
                         <Button color="orange" size='xs'>Ver Informações</Button>
                     )}
-                    onRowClick={(projeto) => alert(projeto.projeto)}
-                    />
+                    onRowClick={(projeto) => setOpen(true)}/>
                 </div>
             </div>
         </div>

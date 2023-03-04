@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { Drawer } from 'rsuite'
+import { useEffect, useState } from 'react'
+import { Drawer, Button } from 'rsuite'
 import Timeline from 'react-calendar-timeline'
 // make sure you include the timeline stylesheet or the timeline will not be styled
 import './Timeline.css'
@@ -65,6 +65,8 @@ const Atividades = () => {
     }
     ]
 
+    const [open, setOpen] = useState(false)
+
     useEffect(() => {
         dispatch(filterAtividades(
             moment().weekday(0).format('YYYY-MM-DD'),
@@ -74,6 +76,19 @@ const Atividades = () => {
 
     return (
         <div className="col p-5 overflow-auto h-100">
+            <Drawer open={open} onClose={() => setOpen(false)}>
+                <Drawer.Header>
+                    <Drawer.Title>Atividade</Drawer.Title>
+                    <Drawer.Actions>
+                    <Button onClick={() => setOpen(false)}>Cancelar</Button>
+                        <Button onClick={() => setOpen(false)} appearance="primary">Confirmar</Button>
+                    </Drawer.Actions>
+                </Drawer.Header>
+                <Drawer.Body>
+                    <p>Atividade</p>
+                </Drawer.Body>
+                
+            </Drawer>
             
             <div className="row">
                 <div className="col-12">
@@ -81,7 +96,7 @@ const Atividades = () => {
                         <h3 className="mb-4 mt-0 text-sm">Atividades programadas</h3>
                         <div>
                             <button className="btn btn-primary">
-                                <span className="mdi mdi-plus">Nova Atividade</span>
+                                <span className="mdi mdi-plus" onClick={() => setOpen(true)}>Nova Atividade</span>
                             </button>
                         </div>
                     </div>
@@ -93,7 +108,10 @@ const Atividades = () => {
                     defaultTimeEnd={moment().add(12, 'hour')}
                     canChangeGroup={true}
                     canResize={true}
-                    
+                    onItemDoubleClick={(item, _, time) => {
+                        setOpen(true)
+
+                    }}
                     />
 
                 </div>
