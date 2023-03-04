@@ -1,6 +1,5 @@
 .react-calendar-timeline * {
   box-sizing: border-box; 
-  border-radius: 5px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -108,3 +107,7 @@
 
 .react-calendar-timeline .rct-calendar-header {
   border: 1px solid #bbb; }
+
+.react-calendar-timeline .rct-dateHeader:hover {
+  background-color: #00000014; 
+}

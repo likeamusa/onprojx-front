@@ -75,6 +75,11 @@ const Atividades = () => {
         ))
     }, [])
 
+    moment.defineLocale('pt-br', { 
+        weekdaysMin: 'Do_Seg_Ter_Qua_Qui_Sex_Sá'.split('_'),
+        months: 'Janeiro_Fevereiro_Março_Abril_Maio_junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_')
+    })
+
     return (
         <div className="col p-5 overflow-auto h-100">
             <Drawer open={open} onClose={() => setOpen(false)}>
