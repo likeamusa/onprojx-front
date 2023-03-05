@@ -76,7 +76,7 @@ const Atividades = () => {
     }, [])
 
     moment.defineLocale('pt-br', { 
-        weekdaysMin: 'Do_Seg_Ter_Qua_Qui_Sex_Sá'.split('_'),
+        weekdaysMin: 'Dom_Seg_Ter_Qua_Qui_Sex_Sáb'.split('_'),
         months: 'Janeiro_Fevereiro_Março_Abril_Maio_junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro'.split('_')
     })
 
@@ -91,7 +91,7 @@ const Atividades = () => {
                     </Drawer.Actions>
                 </Drawer.Header>
                 <Drawer.Body>
-                    <p>Atividade</p>
+                    
                 </Drawer.Body>
                 
             </Drawer>
@@ -107,18 +107,20 @@ const Atividades = () => {
                         </div>
                     </div>
                     
-                    <Timeline
-                    groups={designateds}
-                    items={events}
-                    defaultTimeStart={moment().add(-12, 'hour')}
-                    defaultTimeEnd={moment().add(12, 'hour')}
-                    canChangeGroup={true}
-                    canResize={true}
-                    onItemDoubleClick={(item, _, time) => {
-                        setOpen(true)
+                    <div className='w-auto h-auto'>
+                        <Timeline
+                            groups={designateds}
+                            items={events}
+                            defaultTimeStart={moment().add(-12, 'hour')}
+                            defaultTimeEnd={moment().add(12, 'hour')}
+                            canChangeGroup={true}
+                            canResize={true}
+                            onItemDoubleClick={(item, _, time) => {
+                                setOpen(true)
 
-                    }}
-                    />
+                        }}/>
+                    </div>
+                    
 
                 </div>
             </div>
