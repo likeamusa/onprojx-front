@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Drawer, Button } from 'rsuite'
 import Timeline from 'react-calendar-timeline'
-// make sure you include the timeline stylesheet or the timeline will not be styled
 import './Timeline.css'
 import moment from 'moment'
 import 'moment/locale/pt-br'
@@ -117,8 +116,8 @@ const Atividades = () => {
                             canResize={true}
                             onItemDoubleClick={(item, _, time) => {
                                 setOpen(true)
-
-                        }}/>
+                            }
+                        }/>
                     </div>
                     
 
