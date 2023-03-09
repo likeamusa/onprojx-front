@@ -16,22 +16,24 @@ const Projetos = () => {
 
     const dispatch = useDispatch();
 
-    console.log(projetos);
-
     useEffect(() => {
         dispatch(allProjetos());
     }, []);
 
+    const [projectData, setProjectData] = useState({ project: 0, description: '', local: '', regional: '', type: '', start_date: '', deadline_date: ''});
 
-    const addProject = () => {
-        dispatch(createProject())
-    }
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setProjectData((prevState) => ({ ...prevState, [name]: value }));
+        console.log(projectData);
+    };
 
-    const handlerInputChange = (e) => {
-        const { name, value } = e.target;
-        console.log(name, value);
-        dispatch(createProject({ [name]: value }));
-    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        dispatch(createProject(projectData));
+    };
+
+
 
     return (
         <div className="col p-5 overflow-auto h-100">
@@ -41,7 +43,7 @@ const Projetos = () => {
                     <Drawer.Title>Novo Projeto</Drawer.Title>
                     <Drawer.Actions>
                         <Button onClick={() => setOpen(false)}>Cancelar</Button>
-                        <Button onClick={() => {setOpen(false); addProject()}} appearance="primary">Confirmar</Button>
+                        <Button onClick={handleSubmit} appearance="primary">Confirmar</Button>
                     </Drawer.Actions>
                 </Drawer.Header>
                 <Drawer.Body>
@@ -49,14 +51,14 @@ const Projetos = () => {
                             <div className="form-group mt-4">
                                 <b>Número do projeto</b>
                                 <div className="input-group col-6">
-                                    <input type="text" className="form-control" placeholder="Número do projeto" onChange={handlerInputChange} />
+                                    <input type="text" name='project' className="form-control" placeholder="Número do projeto" onChange={handleInputChange} />
                                 </div>
                             </div>
 
                             <div className="form-group mt-4 col-6">
                                 <b>Tipo</b>
                                 <div className="input-group">
-                                     <select className='form-control'>
+                                     <select className='form-control' name='type' onChange={handleInputChange} >
                                         <option value="">Selecione</option>
                                         <option value="1">LPT</option>
                                         <option value="2">Varejo</option>
@@ -68,35 +70,35 @@ const Projetos = () => {
                             <div className="form-group mt-4 col-6">
                                 <b>Localidade</b>
                                 <div className="input-group">
-                                    <input type="text" className="form-control" placeholder="Localidade" />
+                                    <input type="text" name='local' className="form-control" placeholder="Localidade" onChange={handleInputChange} />
                                 </div>
                             </div>
                             
                             <div className="form-group mt-4 col-12">
                                 <b>Regional</b>
                                 <div className="input-group">
-                                    <input type="text" className="form-control" placeholder="Regional" />
+                                    <input type="text" name='regional' className="form-control" placeholder="Regional" onChange={handleInputChange}/>
                                 </div>
                             </div>
 
                             <div className="form-group mt-4 col-6">
                                 <b>Previsão de ínicio</b>
                                 <div className="input-group">
-                                    <input type="date" className="form-control" placeholder="Previsão de ínicio" />
+                                    <input type="date" name='start_date' className="form-control" placeholder="Previsão de ínicio" onChange={handleInputChange}/>
                                 </div>
                             </div>
                             
                             <div className="form-group mt-4 col-6">
                                 <b>Prazo de entrega</b>
                                 <div className="input-group">
-                                    <input type="date" className="form-control" placeholder="Prazo de entrega" />
+                                    <input type="date" name='deadline_date' className="form-control" placeholder="Prazo de entrega" onChange={handleInputChange}/>
                                 </div>
                             </div>
 
                             <div className="form-group mt-4 col-12 h-100">
                                 <b>Descrição</b>
                                 <div className="input-group h-100">
-                                    <input type="text" className="form-control" placeholder="Descrição"  />
+                                    <input type="text" name='description' className="form-control" placeholder="Descrição"  onChange={handleInputChange}/>
                                 </div>
                             </div>
                             <div className="form-group mt-4 col-12 h-100">

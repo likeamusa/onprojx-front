@@ -9,5 +9,15 @@ export function updateProjeto(projetos) {
 }
 
 export function createProject(project) {
-    return { type : types.CREATE_PROJECT, project }
+    return { type : types.CREATE_PROJECT, payload: project }
 }
+
+export const createProjectSuccess = (project) => ({
+    type: types.CREATE_PROJECT_SUSCCESS,
+    payload: project,
+  });
+  
+  export const createProjectError = (error) => ({
+    type: types.CREATE_PROJECT_ERROR,
+    payload: error,
+  });

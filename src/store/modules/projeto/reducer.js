@@ -13,6 +13,12 @@ function projeto(state = INITIAL_STATE, action) {
                 return draft;
             });
         }
+        case types.CREATE_PROJECT: {
+            return produce(state, draft => {
+                draft = { ...draft, ...action.projetos };
+                return draft;
+            });
+        }
         default: 
             return state;
     }
